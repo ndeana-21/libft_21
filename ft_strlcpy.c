@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 23:25:33 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/08 01:09:58 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/08 01:17:24 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/13 20:31:05 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	*ft_memcpy(void *to, const void *from, size_t n)
+size_t	ft_strlcpy(char *to, const char *from, size_t n)
 {
-	unsigned char	*buff_from;
-	unsigned char	*buff_to;
-	size_t			i;
+	size_t	i;
 
-	buff_from = (unsigned char*)from;
-	buff_to = (unsigned char*)to;
 	i = 0;
-	while (i < n)
+	while ((i < n) && from[i])
 	{
-		buff_to[i] = buff_from[i];
+		to[i] = from[i];
 		i++;
 	}
-	return (to);
+	to[i] = '\0';
+	return (i);
 }

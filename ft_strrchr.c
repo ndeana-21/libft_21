@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 23:25:33 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/08 01:09:58 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/08 01:17:49 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/08 17:14:14 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	*ft_memcpy(void *to, const void *from, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*buff_from;
-	unsigned char	*buff_to;
-	size_t			i;
+	char	*r;
 
-	buff_from = (unsigned char*)from;
-	buff_to = (unsigned char*)to;
-	i = 0;
-	while (i < n)
+	r = 0;
+	while (*s)
 	{
-		buff_to[i] = buff_from[i];
-		i++;
+		if (*s == c)
+			r == (char*)s;
+		s++;
 	}
-	return (to);
+	if (r)
+		return (r);
+	if (c == '\0')
+		return ((char*)s);
+	return (0);
 }
