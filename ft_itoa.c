@@ -1,19 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 04:17:35 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 16:49:33 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/17 18:50:19 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/20 00:06:34 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <libft.h>
+
+char	*ft_itoa(int n)
 {
-	if ((c >= 48 && c <= 57))
-		return (2048);
-	else
-		return (0);
+	char			*num;
+	unsigned int	i;
+	unsigned int	j;
+
+	if (!(num = (char *)malloc(sizeof(char) + 1)))
+		return (NULL);
+	i = 0;
+	j = 0;
+	if (n < 0)
+	{
+		num[i] = '-';
+		i++;
+		j++;
+		n = -1;
+	}
+	while (n)
+	{
+		num[j] = (n % 10) + '0';
+		n /= 10;
+		j++;
+	}
+	num[i] = '\0';
+	ft_strflip(&num[i]);
+	return (num);
 }

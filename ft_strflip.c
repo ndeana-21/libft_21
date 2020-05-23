@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strflip.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 04:17:35 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 16:49:33 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/20 00:05:55 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/20 00:06:01 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <libft.h>
+
+void	ft_strflip(char *s)
 {
-	if ((c >= 48 && c <= 57))
-		return (2048);
-	else
-		return (0);
+	unsigned int	i;
+	unsigned int	j;
+
+	if (!*s)
+		return ;
+	i = 0;
+	j = ft_strlen(s);
+	while (i < --j)
+	{
+		s[i] = s[j];
+		i++;
+	}
 }

@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/08 01:17:49 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 17:24:08 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/14 02:39:50 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/14 03:32:42 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*r;
+	char	*sub;
+	size_t	len_s;
+	size_t	count;
 
-	r = 0;
-	while (*s)
+	if (!s)
+		return (NULL);
+	len_s = ft_strlen(s);
+	if (len_s < start)
+		return (ft_strdup(""));
+	if ((len_s - start) < len)
+		len = len_s - start;
+	if (!(sub = (char *)ft_calloc(len + 1, sizeof(char))))
+		return (NULL);
+	count = 0;
+	while (count < len)
 	{
-		if (*s == c)
-			r = (char *)s;
-		s++;
+		sub[count] = s[start + count];
+		count++;
 	}
-	if (r)
-		return (r);
-	if (c == '\0')
-		return ((char*)s);
-	return (0);
+	sub[count] = '\0';
+	return (sub);
 }

@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 04:17:35 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 16:49:33 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/15 16:24:32 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/19 01:42:08 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <libft.h>
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if ((c >= 48 && c <= 57))
-		return (2048);
-	else
-		return (0);
+	char			*mapi;
+	unsigned int	i;
+
+	if (!s || !f)
+		return (NULL);
+	if (!(mapi = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		mapi[i] = f(i, s[i]);
+		i++;
+	}
+	mapi[i] = '\0';
+	return (mapi);
 }

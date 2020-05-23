@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 04:17:35 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 16:49:33 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/20 00:06:58 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/20 00:07:13 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <libft.h>
+
+void	ft_putnbr(int n)
 {
-	if ((c >= 48 && c <= 57))
-		return (2048);
-	else
-		return (0);
+	char	*str;
+	size_t	i;
+
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n *= -1;
+	}
+	if (!(str = (char*)malloc(sizeof(char) * 11)))
+		return ;
+	i = 0;
+	str[0] = '0';
+	while (n)
+	{
+		str[i] = (n % 10) + '0';
+		n /= 10;
+		i++;
+	}
+	while (i)
+		ft_putchar(str[--i]);
+	free(str);
 }

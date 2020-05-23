@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 04:17:35 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 16:49:33 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/17 18:50:40 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/19 17:08:47 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <libft.h>
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if ((c >= 48 && c <= 57))
-		return (2048);
-	else
-		return (0);
+	char	*trim;
+
+	set++;
+	if (!(trim = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1)))
+		return (NULL);
+	return (trim);
 }
