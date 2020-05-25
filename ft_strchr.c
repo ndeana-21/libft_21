@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 01:17:37 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/08 17:21:46 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:18:18 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 01:17:29 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/13 20:30:41 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:18:14 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *to, const char *from, size_t n)
 {

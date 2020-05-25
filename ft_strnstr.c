@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 01:17:55 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/14 00:32:29 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:18:09 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *s, const char *find, size_t n)
 {

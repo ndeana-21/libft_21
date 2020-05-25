@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:26:01 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 23:24:10 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:18:40 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memccpy(void *to, const void *from, int c, size_t n)
 {

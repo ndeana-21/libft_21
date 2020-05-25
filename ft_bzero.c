@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:25:10 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/08 03:36:23 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:17:59 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	ft_bzero(void *b, size_t n)
 {

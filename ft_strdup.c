@@ -6,13 +6,13 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 00:35:06 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 16:57:47 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:33:59 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-char	*strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	char	*dub;
 	size_t	size;

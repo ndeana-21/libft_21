@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:23:11 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/19 23:23:48 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:18:31 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

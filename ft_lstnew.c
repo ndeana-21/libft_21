@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/02 23:25:33 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/24 05:18:33 by ndeana           ###   ########.fr       */
+/*   Created: 2020/05/24 01:22:04 by ndeana            #+#    #+#             */
+/*   Updated: 2020/05/24 17:03:28 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *to, const void *from, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	unsigned char	*buff_from;
-	unsigned char	*buff_to;
-	size_t			i;
+	t_list	*list;
 
-	buff_from = (unsigned char*)from;
-	buff_to = (unsigned char*)to;
-	i = 0;
-	while (i < n)
-	{
-		buff_to[i] = buff_from[i];
-		i++;
-	}
-	return (to);
+	if (!content || !(list = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 01:17:24 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/13 20:31:05 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:18:12 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *to, const char *from, size_t n)
 {

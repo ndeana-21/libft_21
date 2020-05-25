@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 03:33:05 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/17 17:34:45 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/24 05:18:15 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -6,11 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 18:50:30 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/22 16:43:44 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/25 09:58:06 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 size_t	count_words(char const *s, char c)
 {
@@ -79,6 +79,8 @@ char	**ft_split(char const *s, char c)
 {
 	char			**spl;
 
+	if (!s || !c)
+		return ((char **)ft_strdup(s));
 	if (!(spl = alloc_splstr(s, c)))
 		return (NULL);
 	return (spl);
