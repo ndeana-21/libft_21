@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 18:50:30 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/25 09:58:06 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/26 15:53:36 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	count_words(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		if ((s[i] == c) && (s[i + 1] != c))
+		if ((s[i] != c) && ((s[i + 1] == c) || (s[i + 1] == '\0')))
 			count++;
 		i++;
 	}
@@ -35,7 +35,7 @@ char	*putalloc_word(char const *s, unsigned int i, size_t l, char c)
 	char			*word;
 	unsigned int	j;
 
-	if (!(word = (char *)malloc(sizeof(char) + l)))
+	if (!(word = (char *)malloc(sizeof(char) * l + 1)))
 		return (NULL);
 	j = 0;
 	while (s[i] && s[i] != c)
@@ -62,12 +62,12 @@ char	**alloc_splstr(char const *s, char c)
 	while (s[i])
 	{
 		l = 0;
-		while (s[i + l] && s[i + l] != c)
+		while (s[i + l] && s[i + l] == c)
+			i++;
+		while (s[i + l] && (s[i + l] != c))
 			l++;
 		if (!(spl[w] = putalloc_word(s, i, l, c)))
 			return (NULL);
-		while (s[i + l] && s[i + l] == c)
-			i++;
 		i += l;
 		w++;
 	}

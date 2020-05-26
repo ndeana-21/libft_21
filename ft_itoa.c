@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 18:50:19 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/25 10:45:06 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/26 23:48:54 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_strflip(char *s)
 {
 	unsigned int	i;
 	unsigned int	j;
+	char			buff;
 
 	if (!*s)
 		return ;
@@ -23,7 +24,9 @@ void	ft_strflip(char *s)
 	j = ft_strlen(s);
 	while (i < --j)
 	{
+		buff = s[i];
 		s[i] = s[j];
+		s[j] = buff;
 		i++;
 	}
 }
@@ -31,27 +34,28 @@ void	ft_strflip(char *s)
 char	*ft_itoa(int n)
 {
 	char			*num;
+	unsigned int	sign;
 	unsigned int	i;
-	unsigned int	j;
+	unsigned int	ui_n;
 
-	if (!(num = (char *)malloc(sizeof(char) + 1)))
+	if (!(num = (char *)malloc(sizeof(char) * 10 + 1)))
 		return (NULL);
+	sign = 0;
 	i = 0;
-	j = 0;
 	if (n < 0)
 	{
-		num[i] = '-';
-		i++;
-		j++;
-		n = -1;
+		num[i++] = '-';
+		sign++;
+		ui_n = (unsigned int)n * -1;
 	}
-	while (n)
+	else
+		ui_n = (unsigned int)n;
+	while (ui_n != 0 || !*num)
 	{
-		num[j] = (n % 10) + '0';
-		n /= 10;
-		j++;
+		num[i++] = (ui_n % 10) + '0';
+		ui_n /= 10;
 	}
 	num[i] = '\0';
-	ft_strflip(&num[i]);
+	ft_strflip(&num[sign]);
 	return (num);
 }

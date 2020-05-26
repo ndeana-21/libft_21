@@ -6,20 +6,20 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 21:56:49 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/08 03:36:14 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/26 03:55:47 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char *s)
 {
-	unsigned int	rez;
+	unsigned long	rez;
 	int				sign;
 
-	while (*s >= '\t' && *s <= '\r')
+	while ((*s >= '\t' && *s <= '\r') || *s == ' ')
 		s++;
-	sign = 0;
+	sign = 1;
 	if (*s == '-')
-		sign = 1;
+		sign = -1;
 	if (*s == '+' || *s == '-')
 		s++;
 	rez = 0;
@@ -27,8 +27,12 @@ int	ft_atoi(char *s)
 	{
 		rez = rez * 10 + (*s - '0');
 		s++;
+		if (rez > 9223372036854775807)
+		{
+			if (sign == -1)
+				return (0);
+			return (-1);
+		}
 	}
-	if (sign == 1)
-		return (-rez);
-	return (rez);
+	return (rez * sign);
 }

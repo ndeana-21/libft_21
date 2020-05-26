@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:23:11 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/24 05:18:31 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/25 12:21:52 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t			i;
 
 	buff = (unsigned char*)s;
-	n = 0;
+	i = 0;
 	while (i < n)
 	{
 		buff[i] = (unsigned char)c;

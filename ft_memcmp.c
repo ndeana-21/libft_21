@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 01:17:14 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/24 05:18:33 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/26 01:35:13 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,16 @@
 
 int	ft_memcmp(const void *to, const void *from, size_t n)
 {
-	unsigned int	sum;
-	unsigned int	*buff_to;
-	unsigned int	*buff_from;
+	unsigned char	*buff_to;
+	unsigned char	*buff_from;
 	size_t			i;
 
-	buff_to = (unsigned int*)to;
-	buff_from = (unsigned int*)from;
+	if (!to && !from || !n)
+		return (0);
+	buff_to = (unsigned char*)to;
+	buff_from = (unsigned char*)from;
 	i = 0;
-	sum = 0;
-	if ((i < n) && (n <= 3))
-	{
-		sum += buff_to[i] - buff_from[i];
+	while (buff_to[i] == buff_from[i] && (i < n - 1))
 		i++;
-	}
-	while (n && (i < n))
-	{
-		if (buff_to[i] < buff_from[i])
-			return (1);
-		else if (buff_to[i] > buff_from[i])
-			return (-1);
-		sum++;
-	}
-	return (sum);
+	return (buff_to[i] - buff_from[i]);
 }
