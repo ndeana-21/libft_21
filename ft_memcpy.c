@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:25:33 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/25 12:37:16 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/29 17:40:10 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *to, const void *from, size_t n)
 	unsigned char	*buff_to;
 	size_t			i;
 
-	if (!to || !from)
+	if (!to && !from)
 		return (NULL);
 	buff_from = (unsigned char*)from;
 	buff_to = (unsigned char*)to;

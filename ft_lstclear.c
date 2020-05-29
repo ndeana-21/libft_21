@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 01:23:04 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/24 17:00:34 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/29 17:54:40 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tlst;
-	t_list	*next;
 
-	if (!(tlst = *lst) || !del)
+	if (!(tlst = *lst) || !lst)
 		return ;
-	while (tlst)
-	{
-		next = tlst->next;
-		del(tlst->content);
-		free(tlst);
-		tlst = next;
-	}
+	if (del)
+		while (*lst)
+		{
+			tlst = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = tlst;
+		}
 	*lst = NULL;
 }

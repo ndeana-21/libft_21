@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 01:23:23 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/27 00:03:25 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/28 12:11:23 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*tlst;
-	t_list	*first_tlst;
+	t_list	*new_lst;
+	t_list	*new_next;
 
-	if (!lst || !f || !del)
+	if (!lst || !f)
 		return (NULL);
-	if (!(tlst = ft_lstnew(f(lst->content))))
+	if (!(new_next = ft_lstnew(f(lst->content))))
+	{
+		ft_lstclear(&lst, del);
 		return (NULL);
-	first_tlst = tlst;
+	}
+	new_lst = new_next;
+	lst = lst->next;
 	while (lst)
 	{
-		if (lst->next)
+		if (!(new_next = ft_lstnew(f(lst->content))))
 		{
-			if (!(tlst->next = ft_lstnew(f(lst->next->content))))
-			{
-				ft_lstclear(&first_tlst, del);
-				return (NULL);
-			}
-			tlst = tlst->next;
+			ft_lstclear(&lst, del);
+			ft_lstclear(&new_lst, del);
+			break ;
 		}
 		lst = lst->next;
+		ft_lstadd_back(&new_lst, new_next);
 	}
-	tlst->next = NULL;
-	free(tlst);
-	return (first_tlst);
+	return (new_lst);
 }

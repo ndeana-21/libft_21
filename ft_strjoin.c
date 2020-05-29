@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 03:33:05 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/24 05:18:15 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/28 19:14:22 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*join;
 	size_t	i;
 
-	if (!(join = (char *)malloc(sizeof(char) *
+	if (!s1 || !s2 || !(join = (char *)malloc(sizeof(char) *
 				(ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
 	i = 0;
