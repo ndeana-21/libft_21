@@ -6,82 +6,78 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 18:50:30 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/26 15:53:36 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/28 16:09:18 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(char const *s, char c)
+int		count_words(char *s, char c)
 {
-	unsigned int	i;
-	size_t			count;
+	int		i;
+	int		is_word;
 
-	if (!s)
-		return (0);
-	count = 0;
 	i = 0;
-	while (s[i])
+	is_word = 0;
+	while (*s)
 	{
-		if ((s[i] != c) && ((s[i + 1] == c) || (s[i + 1] == '\0')))
-			count++;
-		i++;
-	}
-	return (count);
-}
-
-char	*putalloc_word(char const *s, unsigned int i, size_t l, char c)
-{
-	char			*word;
-	unsigned int	j;
-
-	if (!(word = (char *)malloc(sizeof(char) * l + 1)))
-		return (NULL);
-	j = 0;
-	while (s[i] && s[i] != c)
-	{
-		word[j] = s[i];
-		i++;
-		j++;
-	}
-	word[j] = 0;
-	return (word);
-}
-
-char	**alloc_splstr(char const *s, char c)
-{
-	char			**spl;
-	unsigned int	i;
-	size_t			w;
-	size_t			l;
-
-	if (!s || !(spl = (char **)malloc(sizeof(char *) * count_words(s, c) + 1)))
-		return (NULL);
-	i = 0;
-	w = 0;
-	while (s[i])
-	{
-		l = 0;
-		while (s[i + l] && s[i + l] == c)
+		if (is_word == 0 && *s != c)
+		{
+			is_word = 1;
 			i++;
-		while (s[i + l] && (s[i + l] != c))
-			l++;
-		if (!(spl[w] = putalloc_word(s, i, l, c)))
-			return (NULL);
-		i += l;
-		w++;
+		}
+		else if (is_word == 1 && *s == c)
+			is_word = 0;
+		s++;
 	}
-	spl[w] = 0;
-	return (spl);
+	return (i);
+}
+
+int		strlenword(char *s, char c)
+{
+	int		len;
+
+	len = 0;
+	while (*s != c && *s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+
+void	*double_free(char **tab, int i)
+{
+	while (i-- > 0)
+	{
+		free(tab[i]);
+	}
+	free(tab);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char			**spl;
+	int		words;
+	char	**tab;
+	int		i;
 
-	if (!s || !c)
-		return ((char **)ft_strdup(s));
-	if (!(spl = alloc_splstr(s, c)))
+	if (!s)
 		return (NULL);
-	return (spl);
+	words = count_words((char *)s, c);
+	if (!(tab = (char **)malloc((words + 1) * sizeof(char*))))
+		return (NULL);
+	i = 0;
+	while (words--)
+	{
+		while (*s == c && *s != '\0')
+			s++;
+		tab[i] = ft_substr((char *)s, 0, strlenword((char *)s, c));
+		if (!tab[i])
+			return (double_free(tab, i));
+		s = s + strlenword((char *)s, c);
+		i++;
+	}
+	tab[i] = NULL;
+	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 01:17:14 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/26 01:35:13 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/29 17:35:35 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_memcmp(const void *to, const void *from, size_t n)
 	unsigned char	*buff_from;
 	size_t			i;
 
-	if (!to && !from || !n)
+	if (!n)
 		return (0);
 	buff_to = (unsigned char*)to;
 	buff_from = (unsigned char*)from;

@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:35:23 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/27 01:01:47 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/29 17:34:41 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ void	*ft_memmove(void *to, const void *from, size_t n)
 
 	buff_from = (unsigned char*)from;
 	buff_to = (unsigned char*)to;
-	if (!buff_to && !buff_from)
-		return (NULL);
-	if (buff_from < buff_to)
+	if (from > to)
 		return (ft_memcpy(buff_to, buff_from, n));
-	else
-		while (--n)
-			buff_to[n - 1] = buff_from[n - 1];
-	return (buff_to);
+	else if (from < to)
+		while (n)
+		{
+			n--;
+			buff_to[n] = buff_from[n];
+		}
+	return (to);
 }
