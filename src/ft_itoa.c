@@ -6,30 +6,11 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 18:50:19 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/29 18:56:43 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/06/04 03:49:08 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_strflip(char *s)
-{
-	unsigned int	i;
-	unsigned int	j;
-	char			buff;
-
-	if (!*s)
-		return ;
-	i = 0;
-	j = ft_strlen(s);
-	while (i < --j)
-	{
-		buff = s[i];
-		s[i] = s[j];
-		s[j] = buff;
-		i++;
-	}
-}
 
 int		count_lenofnum(int num)
 {
@@ -68,6 +49,6 @@ char	*ft_itoa(int n)
 		ui_n /= 10;
 	}
 	num[i] = '\0';
-	ft_strflip(&num[sign]);
+	ft_strrev(&num[sign]);
 	return (num);
 }

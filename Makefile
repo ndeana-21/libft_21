@@ -6,7 +6,7 @@
 #    By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/02 14:32:17 by ndeana            #+#    #+#              #
-#    Updated: 2020/06/04 03:09:17 by ndeana           ###   ########.fr        #
+#    Updated: 2020/06/10 00:04:16 by ndeana           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRC 	=	src/ft_memset.c			src/ft_bzero.c			src/ft_memcpy.c		\
 			src/ft_memccpy.c		src/ft_strlen.c			src/ft_strrchr.c	\
 			src/ft_isalpha.c		src/ft_isprint.c		src/ft_strdup.c		\
 			src/ft_split.c			src/ft_putstr_fd.c		src/ft_lstclear.c	\
-			src/ft_lstdelone.c
+			src/ft_lstdelone.c		\
+			src/ft_minmax_bonus.c	src/ft_strrev_bonus.c	src/ft_sqrt_bonus.c	\
+			src/ft_pow_bonus.c		src/ft_invsqrt_bonus.c
 
 OBJ		= $(SRC:.c=.o)
 DFILE	= $(SRC:.c=.d)
@@ -60,4 +62,4 @@ fclean:	clean
 
 re:		fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

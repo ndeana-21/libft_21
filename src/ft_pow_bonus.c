@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_pow_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/17 18:50:40 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/28 12:03:39 by ndeana           ###   ########.fr       */
+/*   Created: 2020/06/04 03:58:02 by ndeana            #+#    #+#             */
+/*   Updated: 2020/06/04 04:20:28 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+int	ft_pow(int x, int y)
 {
-	char	*trim;
-	int		i;
+	long int	rez;
 
-	if (!s1)
-		return (NULL);
-	i = 0;
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	i = ft_strlen(s1);
-	while (i >= 0 && ft_strchr(set, s1[i]))
-		i--;
-	trim = ft_substr(s1, 0, i + 1);
-	return (trim);
+	rez = (long)x;
+	while (--y)
+	{
+		rez *= x;
+		if (rez >= INT_MAX)
+			return (INT_MAX);
+		if (rez <= INT_MIN)
+			return (INT_MIN);
+	}
+	return ((int)rez);
 }
