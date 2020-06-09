@@ -6,7 +6,7 @@
 #    By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/02 14:32:17 by ndeana            #+#    #+#              #
-#    Updated: 2020/06/10 00:04:16 by ndeana           ###   ########.fr        #
+#    Updated: 2020/06/10 00:53:05 by ndeana           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,9 @@ all:	${NAME}
 
 clean:
 		@${RM} ${OBJ}
-		@echo remove ${OBJ}
+		@echo remove OBJ
 		@${RM} ${DFILE}
-		@echo remove ${DFILE}
+		@echo remove D-file
 
 fclean:	clean
 		@${RM} ${NAME}
