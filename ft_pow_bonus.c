@@ -6,18 +6,19 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 03:58:02 by ndeana            #+#    #+#             */
-/*   Updated: 2020/06/04 04:20:28 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/06/30 02:04:22 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-int	ft_pow(int x, int y)
+int	ft_pow(int x, int degree)
 {
 	long int	rez;
 
 	rez = (long)x;
-	while (--y)
+	while (--degree)
 	{
 		rez *= x;
 		if (rez >= INT_MAX)

@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_bittodex_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 21:56:49 by ndeana            #+#    #+#             */
-/*   Updated: 2020/07/04 01:20:06 by ndeana           ###   ########.fr       */
+/*   Created: 2020/06/30 01:34:51 by ndeana            #+#    #+#             */
+/*   Updated: 2020/06/30 03:24:43 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include "libft.h"
+#include "limits.h"
 
-int	ft_atoi(char *s)
+unsigned long long	ft_bit_to_dex(size_t bit)
 {
-	unsigned long	rez;
-	int				sign;
+	unsigned long long dex;
 
-	while ((*s >= '\t' && *s <= '\r') || *s == ' ')
-		s++;
-	sign = 1;
-	if (*s == '-')
-		sign = -1;
-	if (*s == '+' || *s == '-')
-		s++;
-	rez = 0;
-	while (*s >= '0' && *s <= '9')
-	{
-		rez = rez * 10 + (*s - '0');
-		s++;
-		if (rez > LONG_MAX)
-		{
-			if (sign == -1)
-				return (0);
-			return (-1);
-		}
-	}
-	return (rez * sign);
+	dex = 1;
+	if (bit >= 64)
+		return (ULLONG_MAX);
+	while (bit-- > 0)
+		dex *= 2;
+	return (dex - 1);
 }

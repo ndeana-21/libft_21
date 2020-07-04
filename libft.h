@@ -6,7 +6,7 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 02:03:23 by ndeana            #+#    #+#             */
-/*   Updated: 2020/06/10 00:00:55 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/07/03 22:49:15 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <limits.h>
 
 void				*ft_memset(void *s, int c, size_t n);
 void				*ft_memcpy(void *to, const void *from, size_t n);
@@ -72,7 +71,9 @@ void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-						void (*del)(void *));
+								void (*del)(void *));
+
+int					ft_printf(const char *format, ...);
 
 /*
 **
@@ -81,11 +82,17 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 */
 
 void				ft_strrev(char *s);
+char				*ft_toupperstr(char *str);
+char				*ft_tolowerstr(char *str);
 
-int					ft_pow(int x, int y);
+int					ft_pow(int x, int degree);
 float				ft_invsqrt(float x);
 float 				ft_sqrt(float x);
 long double			ft_min(long double *x, size_t len);
 long double			ft_max(long double *x, size_t len);
+size_t				ft_sys_dex(unsigned long long int num, unsigned int dex);
+char				*ft_dex_to_numsys(unsigned long long int num, unsigned int dex,
+										size_t sizeof_type);
+unsigned long long	ft_bit_to_dex(size_t bit)
 
 #endif

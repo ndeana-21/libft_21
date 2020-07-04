@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_llitoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/17 18:50:19 by ndeana            #+#    #+#             */
-/*   Updated: 2020/07/03 23:05:48 by ndeana           ###   ########.fr       */
+/*   Created: 2020/07/03 22:59:29 by ndeana            #+#    #+#             */
+/*   Updated: 2020/07/04 00:49:51 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
-static int		count_lenofnum(int num)
+static size_t	count_lenofnum(long long int num)
 {
-	if (num == INT_MAX)
+	if (num == LLONG_MIN)
 		return (11);
 	else if (num < 0)
 		return (count_lenofnum(num * -1) + 1);
@@ -25,7 +25,7 @@ static int		count_lenofnum(int num)
 		return (1);
 }
 
-char	*ft_itoa(int n)
+char			*ft_llitoa(long long int n)
 {
 	char			*num;
 	unsigned int	sign;

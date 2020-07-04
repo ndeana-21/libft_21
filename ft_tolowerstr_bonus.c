@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_tolowerstr_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 21:56:49 by ndeana            #+#    #+#             */
-/*   Updated: 2020/07/04 01:20:06 by ndeana           ###   ########.fr       */
+/*   Created: 2020/07/02 02:40:38 by ndeana            #+#    #+#             */
+/*   Updated: 2020/07/02 02:47:38 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include "libft.h"
 
-int	ft_atoi(char *s)
+char	*ft_tolowerstr(char *str)
 {
-	unsigned long	rez;
-	int				sign;
+	char	*newstr;
+	size_t	i;
 
-	while ((*s >= '\t' && *s <= '\r') || *s == ' ')
-		s++;
-	sign = 1;
-	if (*s == '-')
-		sign = -1;
-	if (*s == '+' || *s == '-')
-		s++;
-	rez = 0;
-	while (*s >= '0' && *s <= '9')
-	{
-		rez = rez * 10 + (*s - '0');
-		s++;
-		if (rez > LONG_MAX)
-		{
-			if (sign == -1)
-				return (0);
-			return (-1);
-		}
-	}
-	return (rez * sign);
+	if (!str)
+		return (NULL);
+	if (!(newstr = malloc(sizeof(char *) * ft_strlen(str) + 1)))
+		return (NULL);
+	i = 0;
+	while (str[i])
+		newstr[i] = ft_tolower(str[i]);
+	newstr[i] = '\0';
+	return (str);
 }
