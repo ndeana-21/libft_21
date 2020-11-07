@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gselyse <gselyse@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/24 01:22:26 by ndeana            #+#    #+#             */
-/*   Updated: 2020/05/24 17:04:11 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/11/06 18:30:46 by gselyse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ int		ft_lstsize(t_list *lst)
 	while (lst)
 	{
 		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
+
+int		ft_dl_lstsize(t_dl_list *lst)
+{
+	int	i;
+
+	if (!lst)
+		return (0);
+	i = 0;
+	while (lst)
+	{
+		lst = (t_dl_list*)lst->next;
 		i++;
 	}
 	return (i);

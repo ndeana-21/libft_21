@@ -6,13 +6,13 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 18:50:30 by ndeana            #+#    #+#             */
-/*   Updated: 2020/06/14 15:22:56 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/28 16:09:18 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(char *s, char c)
+int		count_words(char *s, char c)
 {
 	int		i;
 	int		is_word;
@@ -33,7 +33,7 @@ static int	count_words(char *s, char c)
 	return (i);
 }
 
-static int	strlenword(char *s, char c)
+int		strlenword(char *s, char c)
 {
 	int		len;
 
@@ -46,7 +46,7 @@ static int	strlenword(char *s, char c)
 	return (len);
 }
 
-static void	*double_free(char **tab, int i)
+void	*double_free(char **tab, int i)
 {
 	while (i-- > 0)
 	{
@@ -56,7 +56,7 @@ static void	*double_free(char **tab, int i)
 	return (NULL);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		words;
 	char	**tab;

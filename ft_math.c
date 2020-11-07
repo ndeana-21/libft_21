@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupperstr_bonus.c                              :+:      :+:    :+:   */
+/*   ft_math.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/02 02:40:38 by ndeana            #+#    #+#             */
-/*   Updated: 2020/07/02 02:48:13 by ndeana           ###   ########.fr       */
+/*   Created: 2020/10/05 18:07:21 by ndeana            #+#    #+#             */
+/*   Updated: 2020/10/05 18:09:04 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define PI 3.14159265
 
-char	*ft_toupperstr(char *str)
+double			ft_rad(double deg)
 {
-	char	*newstr;
-	size_t	i;
+	return (deg * PI / 180);
+}
 
-	if (!str)
-		return (NULL);
-	if (!(newstr = malloc(sizeof(char *) * ft_strlen(str) + 1)))
-		return (NULL);
-	i = 0;
-	while (str[i])
-		newstr[i] = ft_toupper(str[i]);
-	newstr[i] = '\0';
-	return (str);
+double			ft_deg(double rad)
+{
+	return (rad / PI * 180);
 }

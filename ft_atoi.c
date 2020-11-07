@@ -6,12 +6,9 @@
 /*   By: ndeana <ndeana@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 21:56:49 by ndeana            #+#    #+#             */
-/*   Updated: 2020/07/04 01:20:06 by ndeana           ###   ########.fr       */
+/*   Updated: 2020/05/26 03:55:47 by ndeana           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <limits.h>
-#include "libft.h"
 
 int	ft_atoi(char *s)
 {
@@ -30,7 +27,7 @@ int	ft_atoi(char *s)
 	{
 		rez = rez * 10 + (*s - '0');
 		s++;
-		if (rez > LONG_MAX)
+		if (rez > 9223372036854775807)
 		{
 			if (sign == -1)
 				return (0);
