@@ -1,1 +1,1 @@
-libft
+Project of School 21
